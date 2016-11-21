@@ -1,0 +1,60 @@
+/* ==========================================================================
+   1.  Dresscode
+   ========================================================================== */
+
+/* Colors: */
+
+$blue: #3875A4;
+$body-text: #222;
+$grey-text: #777;
+$hover-link-text: #FFF;
+$hover-link-bg: $blue;
+$highlight-bg: $blue;
+$white: #FFF;
+
+$category-1: #912D8A; /* violet */
+$category-2: #3875A4; /* $blue */
+$category-3: #14AB4C; /* green */
+$category-4: #DE8022; /* orange */
+$category-5: #AB542C; /* marroon */
+$category-6: #A9AB2C; /* lime */
+$category-7: #5B5C78; /* steel */
+
+/* Backgrounds: */
+$banner-bg: "../img/basehold.png";
+$bg-sidebar : "../img/bars.png";
+$section-bg: rgba(79, 160, 222, 0.1);
+$sidebars-bg: rgba(79, 160, 222, 0.1);
+$section-border: rgba(79, 160, 222, 0.1);
+$dark-bg: #222;
+
+/* Layout */
+$global-width: 85%;
+$global-max-width: 1024px;
+
+$base-px: 994px;
+$main-px: 570px;
+$main-singular-px: 650px;
+$sidebar-px: 400px;
+$sidebar-singular-px: 320px;
+$main-gutter-px: 24px;
+
+$sidebar-singular: $sidebar-singular-px/$base-px*100%;
+$sidebar: $sidebar-px/$base-px*100%;
+$main-singular: $main-singular-px/$base-px*100%;
+$main: $main-px/$base-px*100%;
+$main-gutter: $main-gutter-px/$base-px*100%;
+$sidebars-gutter: $main-gutter-px/$sidebar-px*100%;
+$sidebars: 100%;
+
+/**
+ * Mixins
+*/
+
+/* border-radius */
+@mixin br-first-child {
+  border-radius: 3px 0 0 3px;
+}
+@mixin br-last-child {
+  border-radius: 0 3px 3px 0;
+}

@@ -1,0 +1,116 @@
+/*  ==========================================================================
+    6.  Header
+    ========================================================================== */
+/**
+ * Logo
+ */
+ #banner {
+    margin-bottom: 1.5em;
+    background-image: url($banner-bg); /* 24px */
+ }
+#branding {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    @extend .clearfix;
+}
+.home:hover {
+    background: none;
+}
+.home img:active {
+    -webkit-transform: scale(1.01);
+        -ms-transform: scale(1.01);
+            transform: scale(1.01);
+}
+#site-description {
+    text-transform: uppercase;
+    color: $body-text;
+    font-weight: normal;
+}
+
+
+/**
+ * Main Menu
+ */
+ #menu-main-menu {
+    padding-left: 0;
+    width: 100%;
+    margin-bottom: 0;
+}
+#menu-general {
+    padding-left: 0;
+}
+#site-navigation {
+    clear: both;
+    font-size: 1em; /* 16px */
+    zoom: 1;
+}
+.site-navigation {
+    text-align: center;
+}
+.site-navigation a {
+    color: $white;
+    background: $dark-bg;
+    text-decoration: none;
+    padding: 0.15em .5em;
+}
+.site-navigation li a:hover {
+}
+.site-navigation li {
+    display: inline-block;
+    margin-bottom: $main-gutter;
+    text-transform: uppercase;
+}
+.site-navigation li:first-child a {
+    @include br-first-child;
+}
+.site-navigation li:last-child a {
+    @include br-last-child;
+}
+.site-navigation li:first-child a:hover,
+.current-menu-item:first-child a {
+    background: $category-1;
+}
+.site-navigation li:nth-child(2) a:hover,
+.current-menu-item:nth-child(2) a {
+    background: $category-2;
+}
+.site-navigation li:nth-child(3) a:hover,
+.current-menu-item:nth-child(3) a {
+    background: $category-3;
+}
+.site-navigation li:nth-child(4) a:hover,
+.current-menu-item:nth-child(4) a {
+    background: $category-4;
+}
+.site-navigation li:nth-child(5) a:hover,
+.current-menu-item:nth-child(5) a {
+    background: $category-5;
+}
+.site-navigation li:nth-child(6) a:hover,
+.current-menu-item:nth-child(6) a {
+    background: $category-6;
+}
+.site-navigation li:last-child a:hover,
+.current-menu-item:last-child a {
+    background: $category-7;
+}
+.site-navigation li:nth-child(1) a:hover,
+.site-navigation li:nth-child(2) a:hover,
+.site-navigation li:nth-child(3) a:hover,
+.site-navigation li:nth-child(4) a:hover,
+.site-navigation li:nth-child(5) a:hover,
+.site-navigation li:nth-child(6) a:hover,
+.site-navigation li:last-child a:hover,
+.site-navigation .current_page_item a,
+.site-navigation .current-menu-item a {
+    /*border-top: 4px solid #222;*/
+}
+.site-navigation li {
+    list-style: none;
+}
+.site-navigation li + li {
+    /*margin-left: 1.207243460764588%;*/
+    margin-left: $main-gutter/2;
+    margin-left: 0;
+}

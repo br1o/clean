@@ -1,0 +1,74 @@
+/* ==========================================================================
+    5.  Horizontal Grid
+    ========================================================================== */
+
+#page {
+    margin: 0 1em;
+}
+
+
+/* >= 768px */
+@media only screen and (min-width:768px) {
+    #page {
+        width: $global-width;
+        max-width: $global-max-width;
+        margin: 0 auto;
+        /*width: 994px;  994px */
+        /* 940px */
+    }
+    #main,
+    #sidebar,
+    #sidebar .sidebars {
+        float: left;
+        position: relative;
+    }
+    #main {
+        /*width: 57.34406438631791%; /* 570px / 994px */
+        width: $main;
+        clear: left;
+    }
+    .singular #main {
+        /* width: 65.39235412474849%; /* 650px / 994px */
+        width: $main-singular;
+    }
+    #sidebar  {
+        /* width: 40.24144869215292%; /* 400px / 994px */
+        width: $sidebar;
+        /* margin-left: 2.414486921529175%;  24px / 994px */
+        margin-left: $main-gutter;
+    }
+    .singular #sidebar {
+        /* width: 32.193158953722334%; /* 320px / 994px */
+        width:$sidebar-singular;
+    }
+    .sidebars {
+        width: 47%; /* 188px / 400px*/
+    }
+    .singular .sidebars  {
+        /* width: 100%; /* 320px / 994px */
+        width: $sidebars;
+    }
+    #sidebar .sidebars + .sidebars + {
+        /* margin-left: 6%; /* 24px / 400px*/
+        margin-left: $sidebars-gutter;
+    }
+    .page-template-archives #sidebar .sidebars + .sidebars + {
+        margin-left:0;
+    }
+
+    #content-info {
+        clear: both;
+    }
+    #sidebar section {
+         background: rgba(79, 160, 222, .1);
+         border: 1px solid rgba(79, 160, 222, 0.1);
+         border-radius: 3px;
+    }
+    .sidebars {
+        background: rgba(79, 160, 222, .1);
+    }
+    .entry-content,
+    .entry-summary {
+        text-align: justify;
+    }
+} /* eo mq >= 768px */

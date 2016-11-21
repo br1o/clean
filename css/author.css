@@ -1,0 +1,997 @@
+/*
+@package WordPress
+@subpackage Clean
+@author Bruno Bichet <bruno.bichet@gmail.com>
+@version 1.0
+@since Version 0.1
+@todo Check the markup http://validator.w3.org/
+For Those About to Rock. Fire!
+*/
+
+/*
+Theme Name: Clean
+Author: Bruno Bichet <http://4design.xyz>
+*/
+
+ /* ==========================================================================
+    =TOC
+    ========================================================================== */
+ /*
+   1.   Dresscode
+   2.   General
+   3.   Vertical Rhythm
+   4.   WordPress classes
+   5.   Horizontal Grid
+   6.   Banner
+   7.   Main Content
+   8.   Comments
+   9.   Secondary Content
+   10.  Specific Content
+   11.  ContentInfo
+   12.  Responsive web design with media queries
+
+ */
+
+ /* ==========================================================================
+    1.  Dresscode
+    ========================================================================== */
+ /*
+    Color:
+        Blue            #3875A4
+        Purple          #6F2D40
+        Pink            #DA236F
+
+    Background:
+        #sidebar        ../img/bars.png
+ */
+
+
+ /* ==========================================================================
+    2.  General
+    ========================================================================== */
+
+/**
+ * apply a natural box layout model to all elements,
+ * but allowing components to change
+ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/**
+ * Max Values
+ */
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+video,
+svg {
+  max-width: 100%;
+}
+img,
+video,
+svg {
+    height: auto;
+}
+
+/**
+ * Typography
+ */
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../font/open-sans-regular/opensans-regular-webfont.eot');
+  src: url('../font/open-sans-regular/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/open-sans-regular/opensans-regular-webfont.woff2') format('woff2'),
+       url('../font/open-sans-regular/opensans-regular-webfont.woff') format('woff'),
+       url('../font/open-sans-regular/opensans-regular-webfont.ttf') format('truetype'),
+       url('../font/open-sans-regular/opensans-regular-webfont.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+    font-family:
+    'open_sansregular',
+    'Helvetica',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif';
+}
+h1, h2, h3, h4, h5, h6 {
+    /*font-family: Georgia, serif;*/
+    color: #777;
+    font-weight: bold;
+}
+a {
+    color: #3875A4;
+    text-decoration: none;
+    transition: all .3s ease-in;
+}
+a:hover {
+    color: #fff;
+    background: #3875A4;
+    border-radius: 1px;
+}
+a:active {
+    position: relative;
+    top: 1px;
+}
+ul, ol {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+li {
+     margin-bottom: .5em;
+}
+mark {
+    background: #3875A4;
+}
+dt {
+    font-weight: bold;
+    margin-top: 1.5em;
+}
+dd {
+    margin-left: 0;
+}
+dd:before {
+    content: "» ";
+}
+
+
+ /* ==========================================================================
+    3.  Vertical Rhythm Tool - http://soqr.fr/vertical-rhythm/ --- 16px/1.5
+    ========================================================================== */
+
+html {
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.6em;
+    line-height: 1.5;
+}
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+textarea,
+caption {
+    font-size: 1em; /* equiv 16px */
+    line-height: 1.5;
+    margin: 0 0 1.5em 0;
+}
+h1, .h1-like, #site-title {
+    font-size:  1.75em; /* equiv 28px */
+    line-height: 1.7142;
+    margin: 0 0 .8571em 0;
+}
+h2, .h2-like {
+    font-size:  1.625em; /* equiv 26px */
+    line-height: 1.8462;
+    margin: 0 0 .9231em 0;
+}
+h3, .h3-like {
+    font-size:  1.5em; /* equiv 24px */
+    line-height:  1;
+    margin: 0 0 1em 0;
+}
+
+h4, .h4-like {
+    font-size:  1.375em; /* equiv 22px */
+    line-height:  1.0909;
+    margin: 0 0 1.0909em 0;
+}
+h5, .h5-like {
+    font-size:  1.25em; /* equiv 20px */
+    line-height:  1.2;
+    margin: 0 0 1.2em 0;
+}
+h6, .h6-like {
+    font-size:  1.125em; /* equiv 18px */
+    line-height:  1.3333;
+    margin: 0 0 1.3333em 0;
+}
+.smaller {
+    font-size: .75em; /* equiv 12px */
+    line-height:  2;
+    margin:  2em 0 2em 0;
+}
+.small {
+    font-size: .875em; /* equiv 14px */
+    line-height:  1.7143;
+    margin:  1.7143em 0 1.7143em 0;
+}
+.big {
+    font-size:  1.125em; /* equiv 18px */
+    line-height:  1.3333;
+    margin:  1.3333em 0 1.3333em 0;
+}
+.bigger {
+    font-size:  1.25em; /* equiv 20px */
+    line-height:  1.2;
+    margin:  1.2em 0 1.2em 0;
+}
+.biggest {
+    font-size:  1.375em; /* equiv 22px */
+    line-height:  1.0909;
+    margin:  1.0909em 0 1.0909em 0;
+}
+
+
+/* avoid supp margin on nested elements */
+li p,
+li ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* you shall not pass */
+textarea,
+table,
+td,
+th,
+code,
+pre,
+samp,
+div,
+p {
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+}
+code,
+pre,
+samp {
+    white-space: pre-wrap;
+    font-family: consolas, 'DejaVu Sans Mono', courier, monospace;
+}
+code {
+    line-height: 1;
+}
+table {
+    margin-bottom: 1.5em;
+}
+
+/* Custom */
+
+h3, .h3-like, h4, .h4-like {
+    margin: 0 0 0 0;
+}
+
+
+/* ==========================================================================
+   4.   WordPress classes
+   ========================================================================== */
+
+/*
+@version 0.5
+@since Version 0.5
+For Those About to Rock. Fire!
+*/
+
+/**
+ * wordpress.css
+ * Specific classes from the core of WordPress or the generated code from Basics
+ */
+
+/**
+ * Posts
+ */
+.sticky {  }
+.bypostauthor {  }
+
+/**
+ * Text alignment
+ */
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
+.justify {
+    text-align: justify;
+}
+
+/**
+ * WordPress Medias
+ * Resize images to fit the main content area.
+ * - Applies only to images uploaded via WordPress by targeting size-* classes.
+ * - Other images will be left alone. Use "size-auto" class to apply to other images.
+ */
+
+/**
+ * Generic classes
+ */
+.alignleft {
+    display: inline;
+    float: left;
+}
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1em;
+}
+.aligncenter {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    margin: 1.5em 0;
+}
+.alignnone {
+    float: none;
+    margin: 1.5em;
+}
+
+/**
+ * Specific medias
+ */
+figure.entry-thumbnail {
+    margin-left: 0;
+    margin-top: 1em;
+}
+figure.thumb-small {
+    float: left;
+    margin-right: 1.5em;
+}
+figure.thumb-small img {
+    width: 150px;
+    height: auto;
+}
+figure.thumb-medium img,
+figure.thumb-large img {
+    width: 100%;
+}
+figure.thumb-large {  }
+
+img.attachment-thumbnail {
+    border-radius: 50% 50%;
+}
+img.attachment-medium {  }
+img.attachment-large {  }
+
+img.alignleft,
+figure.alignleft {
+    float: left;
+    margin: 1.5em 1.5em 1.5em 0;
+}
+img.alignright,
+figure.alignright {
+    float: right;
+    margin: 1.5em 0 1.5em 1.5em;
+}
+img.aligncenter,
+figure.aligncenter,
+p.attachment img {
+    /*display: block;
+    margin: 0 auto 1.5em auto;*/
+}
+.wp-caption.aligncenter img {
+    width: 100%;
+}
+img.alignnone {
+    display: inline;
+    margin: .5em;
+}
+figure.alignnone {
+    display: block;
+    margin: .5em;
+}
+figcaption,
+.wp-caption,
+.wp-caption-text,
+.gallery-caption {
+    padding: .5em 0;
+    font-style: italic;
+    font-size: .875em;
+}
+.gallery-item dd {
+    margin-bottom: 0;
+}
+.wp-smiley {
+    margin: 0;
+}
+.wp-post-image {
+    border-radius: 3px;
+}
+/**
+ * Alignment for the logo "WordPress je thème" in the footer.
+ * Keep it safe if possible ;-)
+ */
+#wpjt {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+    5.  Horizontal Grid
+    ========================================================================== */
+
+#page {
+    margin: 0 1em;
+}
+
+
+/* >= 768px */
+@media only screen and (min-width:768px) {
+    #page {
+        /*width: 994px;  994px */
+        /* 940px */
+        width: 85%;
+        margin: 0 auto;
+        max-width: 1024px;
+    }
+    #main,
+    #sidebar,
+    #sidebar .sidebars {
+        float: left;
+        position: relative;
+    }
+    #main {
+        width: 57.34406438631791%; /* 570px / 994px */
+        clear: left;
+    }
+    .singular #main {
+        width: 65.39235412474849%; /* 650px / 994px */
+    }
+    #sidebar  {
+        width: 40.24144869215292%; /* 400px / 994px */
+        margin-left: 2.414486921529175%; /* 24px / 994px */
+    }
+    .singular #sidebar {
+        width: 32.193158953722334%; /* 320px / 994px */
+    }
+    .sidebars {
+        width: 47%; /* 188px / 400px*/
+    }
+    .singular .sidebars  {
+        width: 100%; /* 320px / 994px */
+    }
+    #sidebar .sidebars + .sidebars + {
+        margin-left: 6%; /* 24px / 400px*/
+    }
+    .page-template-archives #sidebar .sidebars + .sidebars + {
+        margin-left:0;
+    }
+
+    #content-info {
+        clear: both;
+    }
+    #main > section,
+    .lt-ie10 #sidebar > aside {
+        /*margin-top: 1.5em;*/
+    }
+    section {
+        padding: 1.5em;
+    }
+    #sidebar section {
+         background: rgba(79, 160, 222, .1);
+         border: 1px solid rgba(79, 160, 222, 0.1);
+         border-radius: 3px;
+    }
+    .sidebars {
+        background: rgba(79, 160, 222, .1);
+    }
+    .entry-content,
+    .entry-summary {
+        text-align: justify;
+    }
+} /* eo mq >= 768px */
+
+/*  ==========================================================================
+    6.  Banner
+    ========================================================================== */
+
+/**
+ * Logo
+ */
+ #banner {
+    margin-bottom: 1.5em;
+    background-image: url(../img/basehold.png); /* 24px */
+ }
+#branding {
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+.home:hover {
+    background: none;
+}
+.home img:active {
+    -webkit-transform: scale(1.01);
+        -ms-transform: scale(1.01);
+            transform: scale(1.01);
+}
+#site-description {
+    text-transform: uppercase;
+    color: #222;
+    font-weight: normal;
+}
+
+
+/**
+ * Main Menu
+ */
+ #menu-main-menu {
+    padding-left: 0;
+    width: 100%;
+    margin-bottom: 0;
+}
+#menu-general {
+    padding-left: 0;
+}
+#site-navigation {
+    clear: both;
+    font-size: 1em; /* 16px */
+    zoom: 1;
+}
+.site-navigation {
+    text-align: center;
+}
+.site-navigation a {
+    color: #fff;
+    background: #222;
+    text-decoration: none;
+    padding: 0.15em .5em;
+}
+.site-navigation li a:hover {
+}
+.site-navigation li {
+    display: inline-block;
+    margin-bottom: 2.414486921529175%;
+    margin-bottom: 0.15em;
+    text-transform: uppercase;
+}
+.site-navigation li:first-child a {
+    border-radius: 3px 0 0 3px;
+}
+.site-navigation li:last-child a {
+    border-radius: 0 3px 3px 0;
+}
+.site-navigation li:first-child a:hover,
+.current-menu-item:first-child a {
+    background: #912D8A;
+}
+.site-navigation li:nth-child(2) a:hover,
+.current-menu-item:nth-child(2) a {
+    background: #3875A4;
+}
+.site-navigation li:nth-child(3) a:hover,
+.current-menu-item:nth-child(3) a {
+    background: #14AB4C;
+}
+.site-navigation li:nth-child(4) a:hover,
+.current-menu-item:nth-child(4) a {
+    background: #DE8022;
+}
+.site-navigation li:nth-child(5) a:hover,
+.current-menu-item:nth-child(5) a {
+    background: #AB542C;
+}
+.site-navigation li:nth-child(6) a:hover,
+.current-menu-item:nth-child(6) a {
+    background: #A9AB2C;
+}
+.site-navigation li:last-child a:hover,
+.current-menu-item:last-child a {
+    background: #5B5C78;
+}
+.site-navigation li:nth-child(1) a:hover,
+.site-navigation li:nth-child(2) a:hover,
+.site-navigation li:nth-child(3) a:hover,
+.site-navigation li:nth-child(4) a:hover,
+.site-navigation li:nth-child(5) a:hover,
+.site-navigation li:nth-child(6) a:hover,
+.site-navigation li:last-child a:hover,
+.site-navigation .current_page_item a,
+.site-navigation .current-menu-item a {
+    /*border-top: 4px solid #222;*/
+}
+.site-navigation li {
+    list-style: none;
+}
+.site-navigation li + li {
+    margin-left: 1.207243460764588%;
+    margin-left: 0;
+}
+
+
+/*  ==========================================================================
+    7.  Main Content
+    ========================================================================== */
+
+#main {
+    border-top: 4px solid rgba(79, 160, 222, 0.1);
+    border-radius: 2px;
+}
+.category-222 .section-title { color: #912D8A; }
+
+.category-241 .section-title { color: #3875A4; }
+
+.category-220 .section-title { color: #14AB4C; }
+
+.category-1508 .section-title { color: #DE8022; }
+
+.category-1509 .section-title { color: #AB542C; }
+
+.category-211 .section-title { color: #A9AB2C; }
+
+.category-234 .section-title { color: #5B5C78; }
+
+.featured-category:before {
+     content: "➔";
+}
+.entry-content p:first-child:first-line {
+    font-variant: small-caps;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+}
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
+    font-family: Georgia, serif;
+    color: #3875A4;
+    font-weight: normal;
+    text-align: left;
+    line-height: 1.0909;
+}
+.post h1, .post h2 {
+    text-transform: uppercase;
+}
+.post ul li:before {
+     content: "» ";
+}
+.post .sd-content ul li:before {
+    content: '';
+}
+.il {
+    float: left;
+    margin: .5em .75em 0 0;
+}
+#main .section-title { }
+#main .section-description {
+    color: #777;
+}
+[role="main"] article {
+    margin-bottom: 1.5em;
+    clear: both;
+}
+[role="region"] article {
+    margin-bottom: 3em;
+}
+[role="region"] > header {
+    margin-bottom: 3em;
+}
+.section-hgroup-home {
+    margin: 0 0 1.5em 0;
+    padding: 1.5em 0;
+    border: 1px solid rgba(79, 160, 222, 0.1);
+    border-width: 1px 0 1px 0;
+    text-align: center;
+}
+.section-hgroup-home h2 {
+    margin-bottom: 0;
+}
+.section-hgroup-home .section-description {
+    text-indent: 1.5em;
+    font-style: italic;
+    margin-bottom: 0;
+}
+.section-description mark {
+    display: block;
+    font-size: 2em;
+    line-height: 1;
+    margin: 0px 0px 0.5em;
+    padding: 0.5em 1em;
+    color: #fff;
+}
+.section-description strong {
+    /*display: block;*/
+    word-wrap: inherit;
+}
+#category-link a {
+  border-radius: 3px 0 0 3px;
+}
+#archives-link a {
+  border-radius: 0 3px 3px 0;
+}
+.big-link {
+  float: left;
+  width: 50%;
+}
+.big-link a {
+    margin: 1.5em 0 0 0;
+    padding: 0.5em 1em;
+    width: 100%;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(79, 160, 222, 0.3);
+
+}
+.multi-columns {
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2;
+    -webkit-column-gap: 1.5em;
+       -moz-column-gap: 1.5em;
+            column-gap: 1.5em;
+    -webkit-column-rule: 1px solid #eee;
+       -moz-column-rule: 1px solid #eee;
+            column-rule: 1px solid #eee;
+    text-align: left;
+}
+
+/**
+ * Other Navigation
+ */
+#nav-above, #nav-below {
+    overflow: hidden;
+}
+#nav-above {
+    margin: 0 0 1.5em 0;
+}
+#nav-below {
+    margin: 1.5em 0 0 0;
+}
+.nav-next {
+    float: right;
+}
+.nav-previous {
+    float: left;
+}
+
+
+ /* ==========================================================================
+    8.  Comments
+    ========================================================================== */
+
+.comments-title {
+    margin-bottom: 1.5em;
+}
+label[for="comment"] {
+    display: inline-block;
+    margin: 1.5em 0;
+}
+#comment {
+    width: 100%;
+}
+.comment-reply-title {
+    margin: 1.5em 0;
+}
+
+.comment-form label,
+.comment-form input {
+    display: block;
+}
+
+@media only screen and (min-width:768px) {
+    .comment-form label,
+    .comment-form input {
+        display: inline-block;
+    }
+    .comment-form label {
+        width: 30%;
+    }
+    .comment-form input {
+        width: 67%;
+    }
+}
+ /* ==========================================================================
+    9.  Secondary Content
+    ========================================================================== */
+
+#sidebar ul li:before {
+     content: "¶ ";
+}
+.search-in {
+    margin-bottom: 1.25em;
+}
+#sidebar .widget {
+    /*padding-bottom: 0;*/
+    margin-bottom: 1.5em;
+}
+#search {
+    width: 67.5%;
+    height: 2em;
+    padding: .25em .5em;
+    border: 4px solid #3875A4;
+    border-radius:3px 0 0 3px;
+    float: left;
+}
+.search-in input[type="submit"]
+.singular .section-title-search {
+    margin-top: .9em;
+    margin-bottom: .6em;
+}
+.search-in [type="submit"] {
+    width: 20%;
+    height: 3em;
+    float: left;
+    background: #3875A4;
+    padding: 0.25em;
+    font-weight: bold;
+    color: #fff;
+    border: 5px solid #3875A4;
+    border-radius:0 3px 3px 0;
+}
+.search-in [type="submit"]:active {
+    position: relative;
+    top: 1px;
+}
+#widget-area-8 {
+
+}
+#widget-area-8 h3 {
+     font-size: 1em;
+}
+#widget-area-8 ul {
+    font-size: .875em;
+}
+.singular #widget-area-10 h3 {
+    margin-top: 1.5em;
+}
+
+
+ /* ==========================================================================
+    10. Specific Content
+    ========================================================================== */
+
+#main {
+    background: #fff;
+}
+#main,
+#sidebar,
+#colophon {
+    /*border-radius: 0.25em;*/
+}
+#content {
+    background: url(../img/bars.png) repeat-y top right;
+}
+
+
+ /* ==========================================================================
+    11. ContentInfo
+    ========================================================================== */
+
+#colophon {
+    padding-top: 1em;
+    text-align: center;
+}
+.lift {
+    text-align: center;
+    margin-bottom: 1em;
+}
+.lift-to-site-title:hover {
+    background: none;
+}
+
+/**
+ * bottom Menu
+ */
+#site-navigation:before,
+#site-navigation:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+}
+#site-navigation:after {
+    clear: both;
+}
+.skip-link:active,
+.skip-link:focus {
+    /* .focusable from ../basics/css/tool.css */
+    clip: auto; height:
+    auto; margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+#widget-area-11 .current-menu-item {
+    font-weight: bold;
+}
+#widget-area-11 {
+    text-align: center;
+    font-size: 0.875em;
+    position: relative;
+    z-index: 1;
+    padding: 0.25em;
+    margin-bottom: .5em;
+}
+#widget-area-11 ul {
+    margin-bottom: 0;
+}
+#widget-area-11 li {
+    display: inline-block;
+    margin-left: 0.5em;
+}
+.old-ie #widget-area-11 li,
+.old-ie #widget-area-11 li {
+    display: inline;
+    margin-left: 0.25em;
+    zoom: 1;
+}
+#widget-area-11 li:before { content: " | "; }
+#widget-area-11 li:first-child:before { content: ""; }
+.old-ie #widget-area-11 li:first-child,
+.old-ie #widget-area-11 li:first-child {
+    margin-left: 0;
+}
+
+
+ /* ==========================================================================
+    12. Responsive web design with media queries
+    ========================================================================== */
+
+/* <= 768px */
+/*
+@media only screen and (max-width:768px) {
+    body {
+        width: 100%;
+        margin: 1.5em auto;
+    }
+    #main,
+    #sidebar,
+    #sidebar .sidebars {
+        float: none; width: 100%;
+    }
+    #main,
+    .singular #main {
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
+    #sidebar {
+        margin-left: 0;
+    }
+    .home #sidebar {
+        width: 100%;
+    }
+    .home #sidebar .search-in {
+        width: 100%;
+    }
+    .singular #sidebar,
+    .singular #sidebar .sidebars,
+    .singular #sidebar .search-in  {
+        width: 100%;
+    }
+    #sidebar .sidebars {
+        margin-left: 0px;
+        width: 100%;
+    }
+    #sidebar .sidebars + .sidebars {
+        margin-left: 0;
+    }
+    #widget-area-1,
+    #site-description,
+    #site-navigation {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    section[role="main"] {
+        border-top: 0;
+    }
+    article header {
+        font-size: .85em;
+        text-align: center;
+    }
+}
+*/

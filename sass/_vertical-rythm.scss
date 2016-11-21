@@ -1,0 +1,119 @@
+/* ==========================================================================
+   3.  Vertical Rhythm Tool - http://soqr.fr/vertical-rhythm/ --- 16px/1.5
+   ========================================================================== */
+
+html {
+   font-size: 62.5%;
+}
+body {
+   font-size: 1.6em;
+   line-height: 1.5;
+}
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+textarea,
+caption {
+   font-size: 1em; /* equiv 16px */
+   line-height: 1.5;
+   margin: 0 0 1.5em 0;
+}
+h1, .h1-like, #site-title {
+   font-size:  1.75em; /* equiv 28px */
+   line-height: 1.7142;
+   margin: 0 0 .8571em 0;
+}
+h2, .h2-like {
+   font-size:  1.625em; /* equiv 26px */
+   line-height: 1.8462;
+   margin: 0 0 .9231em 0;
+}
+h3, .h3-like {
+   font-size:  1.5em; /* equiv 24px */
+   line-height:  1;
+   margin: 0 0 1em 0;
+}
+
+h4, .h4-like {
+   font-size:  1.375em; /* equiv 22px */
+   line-height:  1.0909;
+   margin: 0 0 1.0909em 0;
+}
+h5, .h5-like {
+   font-size:  1.25em; /* equiv 20px */
+   line-height:  1.2;
+   margin: 0 0 1.2em 0;
+}
+h6, .h6-like {
+   font-size:  1.125em; /* equiv 18px */
+   line-height:  1.3333;
+   margin: 0 0 1.3333em 0;
+}
+.smaller {
+   font-size: .75em; /* equiv 12px */
+   line-height:  2;
+   margin:  2em 0 2em 0;
+}
+.small {
+   font-size: .875em; /* equiv 14px */
+   line-height:  1.7143;
+   margin:  1.7143em 0 1.7143em 0;
+}
+.big {
+   font-size:  1.125em; /* equiv 18px */
+   line-height:  1.3333;
+   margin:  1.3333em 0 1.3333em 0;
+}
+.bigger {
+   font-size:  1.25em; /* equiv 20px */
+   line-height:  1.2;
+   margin:  1.2em 0 1.2em 0;
+}
+.biggest {
+   font-size:  1.375em; /* equiv 22px */
+   line-height:  1.0909;
+   margin:  1.0909em 0 1.0909em 0;
+}
+
+
+/* avoid supp margin on nested elements */
+li p,
+li ul {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+/* you shall not pass */
+textarea,
+table,
+td,
+th,
+code,
+pre,
+samp,
+div,
+p {
+   hyphens: auto;
+}
+code,
+pre,
+samp {
+   white-space: pre-wrap;
+   font-family: consolas, 'DejaVu Sans Mono', courier, monospace;
+}
+code {
+   line-height: 1;
+}
+table {
+   margin-bottom: 1.5em;
+}
+
+/* Custom */
+
+h3, .h3-like, h4, .h4-like {
+   margin: 0 0 0 0;
+}

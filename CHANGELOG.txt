@@ -1,0 +1,7 @@
+# Clean (From Beyond Basics 1.0)
+
+For Those About to Rock... Fire!
+
+## Release 1.1 - 09/06/2015
+
+1. Add basics_get_quotes_about_design() and basics_quotes_about_design() to display quotes on design instead of the regular blog description **[functions.php]**

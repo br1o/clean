@@ -1,0 +1,35 @@
+/* ==========================================================================
+   8.  Comments
+   ========================================================================== */
+
+.comments-title {
+   margin-bottom: 1.5em;
+}
+label[for="comment"] {
+   display: inline-block;
+   margin: 1.5em 0;
+}
+#comment {
+   width: 100%;
+}
+.comment-reply-title {
+   margin: 1.5em 0;
+}
+
+.comment-form label,
+.comment-form input {
+   display: block;
+}
+
+@media only screen and (min-width:768px) {
+   .comment-form label,
+   .comment-form input {
+       display: inline-block;
+   }
+   .comment-form label {
+       width: 30%;
+   }
+   .comment-form input {
+       width: 67%;
+   }
+}
